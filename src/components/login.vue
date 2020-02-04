@@ -26,7 +26,7 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       loginForm: {
         username: 'admin',
@@ -36,14 +36,12 @@ export default {
         username: [
           { required: true, message: '请输入用户名', trigger: 'blur' }
         ],
-        password: [
-          { required: true, message: '请输入密码', trigger: 'blur' }
-        ]
+        password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
       }
     }
   },
   methods: {
-    loginClick () {
+    loginClick() {
       // console.log(this)   //this指向表单对象引用loginFormRef
       // this.$refs.loginFormRef.resetFields()  //表单重置
 
