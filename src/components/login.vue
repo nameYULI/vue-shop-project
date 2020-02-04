@@ -17,7 +17,7 @@
           ></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button class="button" type="primary" @click="loginClick" round>登陆</el-button>
+          <el-button class="button" type="primary" @click="loginClick" round>登录</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -29,8 +29,8 @@ export default {
   data () {
     return {
       loginForm: {
-        username: '',
-        password: ''
+        username: 'admin',
+        password: '123456'
       },
       loginFormRules: {
         username: [
@@ -54,9 +54,15 @@ export default {
         const { data: res } = await this.$http.post('login', this.loginForm)
         console.log(res)
         if (res.meta.status !== 200) {
-          return this.$message.error('用户名或者密码错误')
+          return this.$message.error('用户名或密码错误')
         }
         this.$message.success('登录成功')
+        // 1.将登录之后的token保存到客户端的sessionStorage中
+        //   1.1 项目中除了登录之外的其它api接口，必须在登录之后才能访问
+        //   1.2 token只应在当前网站打开期间生效，所以将token保存在sessionStorage中
+        window.sessionStorage.setItem('token', res.data.token)
+        // 2.通过编程式导航跳转到后台主页，路由地址是/home
+        this.$router.push('/home')
       })
     }
   }
