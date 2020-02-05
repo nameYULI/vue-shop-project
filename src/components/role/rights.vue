@@ -9,7 +9,7 @@
 
     <!-- 卡片视图区域 -->
     <el-card>
-      <!-- 用户列表区域 -->
+      <!-- 权限列表区域 -->
       <el-table :data="rightsList" stripe border style="width: 100%">
         <el-table-column type="index" label="#"></el-table-column>
         <el-table-column prop="authName" label="权限名称"></el-table-column>
