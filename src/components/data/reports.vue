@@ -74,4 +74,7 @@ export default {
 }
 </script>
 <style lang="less" scoped>
+.el-card {
+  min-height: 500px;
+}
 </style>

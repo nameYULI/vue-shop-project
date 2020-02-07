@@ -3,7 +3,7 @@
     <el-header>
       <div>
         <img src="../assets/homelogo.jpg" alt />
-        <span>秒杀系统管理后台</span>
+        <span>电商后台管理系统</span>
       </div>
 
       <el-button type="info" @click="logout">退出</el-button>
