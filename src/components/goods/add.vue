@@ -96,7 +96,7 @@
 
       <!-- 图片预览的对话框 -->
       <el-dialog title="图片预览" :visible.sync="picDialogVisible" width="40%">
-        <el-image :src="picSrc" :fit="scale-down"></el-image>
+        <el-image :src="picSrc" :fit="fit"></el-image>
       </el-dialog>
     </el-card>
   </div>
@@ -158,6 +158,7 @@ export default {
       headerObj: {
         Authorization: window.sessionStorage.getItem('token')
       },
+      fit: ['scale-down'],
       picDialogVisible: false,
       picSrc: ''
     }
