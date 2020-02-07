@@ -15,14 +15,27 @@ Vue.use(VueQuillEditor /* { default global options } */)
 //导入组件
 import TreeTable from 'vue-table-with-tree-grid'
 
+//导入Nprogress 包对应的JS和CSS
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+
 import axios from 'axios'
 axios.defaults.baseURL = 'https://www.liulongbin.top:8888/api/private/v1'
+
+//在request拦截器中展示进度条 NProgress.start();
 axios.interceptors.request.use(config => {
   // console.log(config)
+  NProgress.start()
   config.headers.Authorization = window.sessionStorage.getItem('token')
   //在最后必须return config
   return config
 })
+//response拦截器中隐藏进度条 NProgress.done();
+axios.interceptors.response.use(config => {
+  NProgress.done()
+  return config
+})
+
 Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
